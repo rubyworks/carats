@@ -1,9 +1,7 @@
 = Carats
 
-Like Facets but written in C. This library
-is intended to be small and focused on the
-few areas where having a widely useful 
-extension or addition to Ruby could greatly
-benefit from the speed boost and/or the 
-to access the underbelly of RUby itself.
+Like Facets but written in C. This library is intended to be small
+and focused on a few areas where having widely useful extensions
+or additions to Ruby could greatly benefit from the speed boost
+and/or the  to access the underbelly of Ruby itself.
 
