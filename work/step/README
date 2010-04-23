@@ -1,0 +1,44 @@
+= step 1.0  --  Stepchildren
+
+Some simple Ruby extensions.
+
+== Description
+
+These are methods on standard classes that didn't manage to become part of
+the Ruby interpreter. (Although, some are part of Ruby 1.9/1.8.7 but not
+1.8.6).
+
+They are all very small, most of them have less than 15 lines of code.
+So they would not be a weight in the Ruby interpreter but it is very
+difficult to convince a majority that they belong there.
+
+The methods won't be useful for everybody but some programmers may like
+to make them part of their programming style.
+
+If you like to get taunted, then go to the Ruby mailing list and propose
+one of them to be included into the Ruby standard.
+
+== Intention
+
+In my own code I use quite often a method <code>String#notempty?</code>
+that does almost the same as <code>Numeric#nonzero?</code>. Every
+attempt proposing it for the Ruby standard implementation has failed;
+the discussion evolves the same every time.
+
+Now here it is where I can just point to it.
+
+== Contents (uncomplete)
+
+* String#notempty?
+* String#clear
+* String#head
+* String#tail
+* String#rest
+* String#starts_with
+* String#ends_with
+* Array#notempty?
+* Hash#notempty?
+* Struct.[]
+* Interval timer
+* File system stats
+

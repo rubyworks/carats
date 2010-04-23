@@ -1,0 +1,24 @@
+#!/usr/bin/env autorake
+
+#
+#  mkrf_conf  --  configure Step
+#
+
+require "rbconfig"
+
+incdir_ruby RbConfig::CONFIG[ "topdir"]
+
+if RUBY_VERSION <= "1.8.6" then
+  enable_array_index_with_block
+  enable_kernel_tap
+else
+  disable_array_index_with_block
+  disable_kernel_tap
+end
+
+have_header "ruby.h"
+have_header "st.h"
+have_header "rubyio.h"
+have_header "re.h"
+
+# vim:set ft=ruby :
