@@ -3,5 +3,36 @@
 Like Facets but written in C. This library is intended to be small
 and focused on a few areas where having widely useful extensions
 or additions to Ruby could greatly benefit from the speed boost
-and/or the  to access the underbelly of Ruby itself.
+and/or to access the underbelly of Ruby itself.
+
+== Selection
+
+Here are some good choices for inclusion.
+
+=== Methods
+
+* Hash#rekey
+* Hash#rekey!
+
+* String#tab
+* String#tabto[1]
+* String#indent
+* String#margin
+
+* Module#extend
+
+* blank? (multiple classes)
+
+=== Classes & Modules
+
+* Functor
+* BasicObject[2]
+
+
+[1] There may be a bug in the Facets code. I need to check this out.
+
+[2] BasicObject would be a backport for 1.8, but would not be the subclass of
+Object.
+
+
 
