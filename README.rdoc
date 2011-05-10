@@ -1,13 +1,29 @@
 = Carats
 
-Like Facets but written in C. This library is intended to be small
+Carats are Facets written in C. This library is intended to be small
 and focused on a few areas where having widely useful extensions
 or additions to Ruby could greatly benefit from the speed boost
 and/or to access the underbelly of Ruby itself.
 
+Carats is a work in progress and is currently looking for developers.
+If you are a C and Ruby coder and would like to practice your craft
+a bit this a great project to contribute to since all the work is in
+very managable "bite-sized" pieces.
+
+
+== Resources
+
+* home: http://rubyworks.github.com/carats
+* code: http://github.com/rubyworks/carats
+* mail: http://groups.google.com/group/rubyworks-mailinglist
+
+
 == Selection
 
-Here are some good choices for inclusion.
+Contributors are free to select from Facets as they like. Or even offer
+extensions that are not in Facets. 
+
+Here are some good choices for inclusion. 
 
 === Methods
 
@@ -15,7 +31,7 @@ Here are some good choices for inclusion.
 * Hash#rekey!
 
 * String#tab
-* String#tabto[1]
+* String#tabto
 * String#indent
 * String#margin
 
@@ -26,13 +42,16 @@ Here are some good choices for inclusion.
 === Classes & Modules
 
 * Functor
-* BasicObject[2]
+* BasicObject
+
+Note that BasicObject would be a backport for 1.8, but would not be the subclass of Object.
 
 
-[1] There may be a bug in the Facets code. I need to check this out.
+== License
 
-[2] BasicObject would be a backport for 1.8, but would not be the subclass of
-Object.
+Carats (per collection) (c) 2009 Thomas Sawyer
 
+See COPYING.rdoc for complete list of copyright notices.
 
+Carats is distributed under that same licensing terms as Ruby.
 
