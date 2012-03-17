@@ -1,3 +1,3 @@
 require 'mkmf'
-create_makefile 'carats'
+create_makefile 'rekey'
 
