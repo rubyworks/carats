@@ -1,3 +1,2 @@
 ---
-public:
-  public: git://github.com/rubyworks/carats.git
+upstream: git://github.com/rubyworks/carats.git

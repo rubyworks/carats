@@ -47,6 +47,11 @@ Here are some good choices for inclusion.
 Note that BasicObject would be a backport for 1.8, but would not be the subclass of Object.
 
 
+== Reference Material
+
+* {Ruby to C, a couple snippets}[http://macournoyer.wordpress.com/2008/04/16/ruby-to-c-a-couple-snippets]
+
+
 == License
 
 Carats (per collection) (c) 2009 Thomas Sawyer
