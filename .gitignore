@@ -1,5 +1,4 @@
 rubies
-ext/*/Makefile
-ext/*/*.so
-lib/*/*.so
+ext/**/Makefile
+*.so
 tmp
