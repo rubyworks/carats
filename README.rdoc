@@ -1,50 +1,27 @@
 = Carats
 
+{Homepage}[http://rubyworks.github.com/carats]
+{Source Code}[http://github.com/rubyworks/carats]
+
+
+== Description
+
 Carats are Facets written in C. This library is intended to be small
 and focused on a few areas where having widely useful extensions
 or additions to Ruby could greatly benefit from the speed boost
 and/or to access the underbelly of Ruby itself.
 
-Carats is a work in progress and is currently looking for developers.
+Carats is a work in progress and is currently looking for contributors.
 If you are a C and Ruby coder and would like to practice your craft
 a bit this a great project to contribute to since all the work is in
-very managable "bite-sized" pieces.
-
-
-== Resources
-
-* home: http://rubyworks.github.com/carats
-* code: http://github.com/rubyworks/carats
-* mail: http://groups.google.com/group/rubyworks-mailinglist
-
-
-== Selection
+very managable "bite-sized" pieces. To encourge contribution, some
+bounties will be offered. These a small figure bounties, so don't expect 
+to get rich off of this, but if a few greenbacks can help motivate, 
+so much the better.
 
 Contributors are free to select from Facets as they like. Or even offer
-extensions that are not in Facets. 
-
-Here are some good choices for inclusion. 
-
-=== Methods
-
-* Hash#rekey
-* Hash#rekey!
-
-* String#tab
-* String#tabto
-* String#indent
-* String#margin
-
-* Module#extend
-
-* blank? (multiple classes)
-
-=== Classes & Modules
-
-* Functor
-* BasicObject
-
-Note that BasicObject would be a backport for 1.8, but would not be the subclass of Object.
+extensions that are not in Facets. But check out the {bounties}[https://github.com/rubyworks/carats/wiki/Bounties]
+for recommended extensions and the rewards offered for their completion.
 
 
 == Reference Material
@@ -54,7 +31,7 @@ Note that BasicObject would be a backport for 1.8, but would not be the subclass
 
 == License
 
-Carats (per collection) (c) 2009 Thomas Sawyer
+Carats (per collection) (c) 2009 Rubyworks
 
 See COPYING.rdoc for complete list of copyright notices.
 
