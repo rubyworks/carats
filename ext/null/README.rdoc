@@ -1,0 +1,36 @@
+= Null
+
+(Or maybe NA, for Non-Applicable, would be a better name?)
+
+NullClass is just like NilClass with one exception -- missing methods
+always return +null+.
+
+Because +null+ evaluates as false, just like +nil+ and +false+, +null+
+makes it very convenient to to query method chains that might not exist.
+
+Here is a classic example:
+
+  class Config
+    def initialize(data={})
+      @data = data
+    end
+
+    def method_missing(name)
+      value = @data[name] || null
+      Hash === value ? Config.new(value) : value
+    end
+  end
+
+  config = Config.new(:x=>{:a=>'A'})
+
+  config.x.a  #=> 'X'
+  config.x.y  #=> null
+
+  if config.x.y.z
+    # will not happen, but not an error either
+  end
+
+Null is very useful when working with nested data, in that it does not require
+the data's user to continually check for possible +nil+ values to circumvent
+NoMethodErrors.
+
