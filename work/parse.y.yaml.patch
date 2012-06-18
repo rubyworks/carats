@@ -1,0 +1,187 @@
+*** parse.y.1.9.3-p0	2011-11-12 15:42:07.000000000 +0900
+--- parse.y	2011-11-12 15:41:18.000000000 +0900
+***************
+*** 682,688 ****
+--- 682,690 ----
+  %token <num>  tREGEXP_END
+  
+  %type <node> singleton strings string string1 xstring regexp
++ %type <node> yaml
+  %type <node> string_contents xstring_contents regexp_contents string_content
++ %type <node> yaml_contents
+  %type <node> words qwords word_list qword_list word
+  %type <node> literal numeric dsym cpath
+  %type <node> top_compstmt top_stmts top_stmt
+***************
+*** 735,740 ****
+--- 737,743 ----
+  %token tAMPER		/* & */
+  %token tLAMBDA		/* -> */
+  %token tSYMBEG tSTRING_BEG tXSTRING_BEG tREGEXP_BEG tWORDS_BEG tQWORDS_BEG
++ %token tYAML_BEG
+  %token tSTRING_DBEG tSTRING_DVAR tSTRING_END tLAMBEG
+  
+  /*
+***************
+*** 2616,2621 ****
+--- 2619,2625 ----
+  primary		: literal
+  		| strings
+  		| xstring
++ 		| yaml
+  		| regexp
+  		| words
+  		| qwords
+***************
+*** 3905,3910 ****
+--- 3909,3926 ----
+  		    }
+  		;
+  
++ yaml		: tYAML_BEG yaml_contents tSTRING_END
++ 		    {
++ 		    /*%%%*/
++ 			NODE *node = $2;
++ 			if (!node) node = NEW_STR(STR_NEW0());
++ 			$$ = NEW_CALL(node, rb_intern("__yaml__"), 0)
++ 		    /*%
++ 			$$ = dispatch1(xstring_literal, $2);
++ 		    %*/
++ 		    }
++ 		;
++ 
+  regexp		: tREGEXP_BEG regexp_contents tREGEXP_END
+  		    {
+  		    /*%%%*/
+***************
+*** 4098,4103 ****
+--- 4114,4137 ----
+  		    }
+  		;
+  
++ yaml_contents	: /* none */
++ 		    {
++ 		    /*%%%*/
++ 			$$ = 0;
++ 		    /*%
++ 			$$ = dispatch0(xstring_new);
++ 		    %*/
++ 		    }
++ 		| yaml_contents string_content
++ 		    {
++ 		    /*%%%*/
++ 			$$ = literal_concat($1, $2);
++ 		    /*%
++ 			$$ = dispatch2(xstring_add, $1, $2);
++ 		    %*/
++ 		    }
++ 		;
++ 
+  regexp_contents: /* none */
+  		    {
+  		    /*%%%*/
+***************
+*** 5383,5388 ****
+--- 5417,5423 ----
+  #define STR_FUNC_QWORDS 0x08
+  #define STR_FUNC_SYMBOL 0x10
+  #define STR_FUNC_INDENT 0x20
++ #define STR_FUNC_YAML   0x40
+  
+  enum string_type {
+      str_squote = (0),
+***************
+*** 5392,5398 ****
+      str_sword  = (STR_FUNC_QWORDS),
+      str_dword  = (STR_FUNC_QWORDS|STR_FUNC_EXPAND),
+      str_ssym   = (STR_FUNC_SYMBOL),
+!     str_dsym   = (STR_FUNC_SYMBOL|STR_FUNC_EXPAND)
+  };
+  
+  static VALUE
+--- 5427,5434 ----
+      str_sword  = (STR_FUNC_QWORDS),
+      str_dword  = (STR_FUNC_QWORDS|STR_FUNC_EXPAND),
+      str_ssym   = (STR_FUNC_SYMBOL),
+!     str_dsym   = (STR_FUNC_SYMBOL|STR_FUNC_EXPAND),
+!     str_yaml   = (STR_FUNC_YAML|STR_FUNC_EXPAND)
+  };
+  
+  static VALUE
+***************
+*** 5859,5864 ****
+--- 5895,5901 ----
+      rb_encoding *enc = *encp;
+      char *errbuf = 0;
+      static const char mixed_msg[] = "%s mixed within %s source";
++     int yaml_dotlen = 0;
+  
+  #define mixed_error(enc1, enc2) if (!errbuf) {	\
+  	size_t len = sizeof(mixed_msg) - 4;	\
+***************
+*** 5878,5883 ****
+--- 5915,5932 ----
+      } while (0)
+  
+      while ((c = nextc()) != -1) {
++         if (func == str_yaml) {
++             if (c == '.') {
++                 yaml_dotlen++;
++                 if (yaml_dotlen == 3) {
++                     //return -1;
++                     return 1;
++                 }
++             }
++             else {
++                 yaml_dotlen = 0;
++             }
++         }
+  	if (paren && c == paren) {
+  	    ++*nest;
+  	}
+***************
+*** 6037,6042 ****
+--- 6086,6094 ----
+  
+      tokfix();
+      set_yylval_str(STR_NEW3(tok(), toklen(), enc, func));
++     if (func == str_yaml) {
++         quote->nd_func = -1;
++     }
+  
+  #ifdef RIPPER
+      if (!NIL_P(parser->delayed)) {
+***************
+*** 6048,6054 ****
+  	parser->tokp = lex_p;
+      }
+  #endif
+! 
+      return tSTRING_CONTENT;
+  }
+  
+--- 6100,6106 ----
+  	parser->tokp = lex_p;
+      }
+  #endif
+!  
+      return tSTRING_CONTENT;
+  }
+  
+***************
+*** 7135,7140 ****
+--- 7187,7200 ----
+  	    lex_state = EXPR_ARG;
+  	    return tLAMBDA;
+  	}
++ 	if (c == '-') {
++ 	    c = nextc();
++ 	    if (c == '-') {
++ 		lex_strterm = NEW_STRTERM(str_yaml, c, 0);
++ 		return tYAML_BEG;
++ 	    }
++ 	    pushback('-');
++ 	}
+  	if (IS_BEG() || (IS_SPCARG(c) && arg_ambiguous())) {
+  	    lex_state = EXPR_BEG;
+  	    pushback(c);
