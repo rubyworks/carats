@@ -21,7 +21,7 @@ to get rich off of this, but if a few greenbacks can help motivate,
 so much the better.
 
 Contributors are free to select from Facets as they like. Or even offer
-extensions that are not in Facets. But check out the {bounties}[https://github.com/rubyworks/carats/wiki/Bounties]
+extensions that are not in Facets. But check out the [BOUNTIES](https://github.com/rubyworks/carats/wiki/Bounties)
 for recommended extensions and the rewards offered for their completion.
 
 
