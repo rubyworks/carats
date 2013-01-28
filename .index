@@ -1,0 +1,37 @@
+---
+revision: 2013
+type: ruby
+sources:
+- var
+- VERSION
+authors:
+- name: Thomas Sawyer
+  email: transfire@gmail.com
+organizations: []
+requirements:
+- groups:
+  - build
+  development: true
+  name: rake-compiler
+conflicts: []
+alternatives: []
+resources: []
+repositories:
+- name: upstream
+  scm: git
+  uri: git://github.com/rubyworks/carats.git
+categories: []
+copyrights:
+- holder: Rubyworks
+  year: '2012'
+  license: BSD-2-Clause
+customs: []
+paths:
+  lib:
+  - lib
+created: '2004-09-01'
+summary: Ruby Facets in C
+title: Carats
+name: carats
+version: 0.4.0
+date: '2013-01-28'
