@@ -1,6 +1,13 @@
-= Null
+# Null
 
-(Or maybe NA, for Non-Applicable, would be a better name?)
+## Bounty!
+
+The NullClass has yet to be fully implemented. There are issues a more 
+experienced Ruby C expert needs to work out. 
+
+There is a $20 bounty for this class.
+
+## About
 
 NullClass is just like NilClass with one exception -- missing methods
 always return +null+.
@@ -30,7 +37,10 @@ Here is a classic example:
     # will not happen, but not an error either
   end
 
-Null is very useful when working with nested data, in that it does not require
+Null is useful when working with nested data, in that it does not require
 the data's user to continually check for possible +nil+ values to circumvent
 NoMethodErrors.
 
+## Note
+
+Would `NA`, for Non-Applicable, be a better name for this class?

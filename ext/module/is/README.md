@@ -1,4 +1,10 @@
-= is
+# Is
+
+## Bounty!
+
+There is a $20 Bounty for this feature.
+
+## About
 
 A module method that works like #include and #extend combined. It
 includes at the instance level and extends at the class-level.
@@ -17,5 +23,5 @@ Here is a testable example:
     Example.y      #=> "y"
     Example.new.x  #=> "x"
 
-There is a $20 Bounty for this feature.
+
 

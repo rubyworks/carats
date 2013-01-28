@@ -3,11 +3,16 @@
 # We use rake-compiler for this project.
 require 'rake/extensiontask'
 
-Rake::ExtensionTask.new('rekey') do |ext|
-  ext.ext_dir = 'ext/hash/rekey'
-  ext.lib_dir = 'lib/carats/hash'
-end
+extensions = Dir['ext/**/extconf.rb'].map{ |f| File.dirname(f) }
 
-#Rake::ExtensionTask.new('basicobject')
-#Rake::ExtensionTask.new('string_tab')
+extensions.each do |ext_dir|
+  name    = ext_dir.sub('ext/', '') #.gsub('/', '_')
+  lib_dir = File.join('lib/carats')
+
+  Rake::ExtensionTask.new(name) do |ext|
+    ext.ext_dir = ext_dir
+    ext.lib_dir = lib_dir
+    ext.tmp_dir = 'tmp'
+  end
+end
 

@@ -6,6 +6,12 @@ class Hash
   #   h.slice(:a)  #=> {:a=>1}
   #
   def slice(*keep_keys)
+    if block_given?
+      each do |k, v|
+        keep_keys << k if yield(k, v)
+      end
+    end
+
     hash = {}
     keep_keys.each do |key|
       hash[key] = fetch(key)
@@ -22,6 +28,12 @@ class Hash
   #
   # Returns a Hash of the removed pairs.
   def slice!(*keep_keys)
+    if block_given?
+      each do |k, v|
+        keep_keys << k if yield(k, v)
+      end
+    end
+
     rejected = keys - keep_keys
     removed = {}
     rejected.each{ |k| removed[k] = delete(k) }
