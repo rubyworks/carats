@@ -5,7 +5,7 @@
 [Source Code](http://github.com/rubyworks/carats)
 
 
-## Description
+## About
 
 Carats are Facets written in C. This library is intended to be small
 and focused on a few areas where having widely useful extensions
@@ -15,22 +15,26 @@ and/or to access the underbelly of Ruby itself.
 Carats is a work in progress and is currently looking for contributors.
 If you are a C and Ruby coder and would like to practice your craft
 a bit this a great project to contribute to since all the work is in
-very managable "bite-sized" pieces. To encourge contribution, some
-bounties will be offered. These a small figure bounties, so don't expect 
-to get rich off of this, but if a few greenbacks can help motivate, 
-so much the better.
+very managable "bite-sized" pieces. Contributors are free to select 
+from Facets as they like. Or even make a case for extensions that are
+not yet in Facets. 
 
-Contributors are free to select from Facets as they like. Or even offer
-extensions that are not in Facets. But check out the [BOUNTIES](https://github.com/rubyworks/carats/wiki/Bounties)
-for recommended extensions and the rewards offered for their completion.
+## Bounties!
+
+To encourge contribution, some bounties will be offered. These are small
+figure bounties, so don't expect to get rich off of them, but if a few
+greenbacks can help motivate, so much the better.
+
+Check out the [BOUNTIES](https://github.com/rubyworks/carats/wiki/Bounties)
+page for recommended extensions and the rewards offered for their completion.
 
 
-## Reference Material
+## Reference
 
 * [Ruby to C, a couple snippets](http://macournoyer.wordpress.com/2008/04/16/ruby-to-c-a-couple-snippets)
 
 
-## License
+## Copyrights
 
 Carats (per collection) (c) 2009 Rubyworks
 
