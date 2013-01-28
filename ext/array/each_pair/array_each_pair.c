@@ -34,7 +34,7 @@ rb_ary_each_pair(VALUE array)
     return ary;
 }
 
-void Init_carats(){
+void Init_array_each_pair(){
   rb_define_method(rb_cArray, "each_pair", rb_ary_each_pair, 0);
 }
 
