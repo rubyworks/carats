@@ -1,10 +1,11 @@
-= Carats
+# Carats
 
-{Homepage}[http://rubyworks.github.com/carats]
-{Source Code}[http://github.com/rubyworks/carats]
+[Website](http://rubyworks.github.com/carats) /
+[Report Issue](http://github.com/rubyworks/carats/issues) /
+[Source Code](http://github.com/rubyworks/carats)
 
 
-== Description
+## Description
 
 Carats are Facets written in C. This library is intended to be small
 and focused on a few areas where having widely useful extensions
@@ -24,16 +25,15 @@ extensions that are not in Facets. But check out the {bounties}[https://github.c
 for recommended extensions and the rewards offered for their completion.
 
 
-== Reference Material
+## Reference Material
 
-* {Ruby to C, a couple snippets}[http://macournoyer.wordpress.com/2008/04/16/ruby-to-c-a-couple-snippets]
+* [Ruby to C, a couple snippets](http://macournoyer.wordpress.com/2008/04/16/ruby-to-c-a-couple-snippets)
 
 
-== License
+## License
 
 Carats (per collection) (c) 2009 Rubyworks
 
-See COPYING.rdoc for complete list of copyright notices.
+See NOTICE.md for complete list of copyright notices.
 
-Carats is distributed under that same licensing terms as Ruby.
-
+Carats is distributed under that same licensing terms as Ruby (BSD-2-Clause).

@@ -1,4 +1,4 @@
-= COPYRIGHT NOTICES
+# COPYRIGHT NOTICES
 
 Copyright (c) 2010 Caleb Clausen
 
