@@ -28,7 +28,7 @@ rb_obj_identical(VALUE obj1, VALUE obj2)
     return Qfalse;
 }
 
-void Init_carats(){
+void Init_kernel_identical(){
   rb_define_method(rb_cObject, "identical?", rb_obj_identical, 0);
 }
 

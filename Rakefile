@@ -3,13 +3,15 @@
 # We use rake-compiler for this project.
 require 'rake/extensiontask'
 
-extensions = Dir['ext/**/extconf.rb'].map{ |f| File.dirname(f) }
+lib_dir = 'lib/carats/core_ext'
 
-extensions.each do |ext_dir|
-  name    = ext_dir.sub('ext/', '') #.gsub('/', '_')
-  lib_dir = File.join('lib/carats')
+Dir['ext/**/*.c'].each do |ext|
+  next unless File.exist?(File.dirname(ext) + '/extconf.rb')
 
-  Rake::ExtensionTask.new(name) do |ext|
+  ext_name = File.basename(ext).chomp('.c')
+  ext_dir  = File.dirname(ext)
+
+  Rake::ExtensionTask.new(ext_name) do |ext|
     ext.ext_dir = ext_dir
     ext.lib_dir = lib_dir
     ext.tmp_dir = 'tmp'

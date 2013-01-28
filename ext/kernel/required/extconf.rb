@@ -1,3 +1,4 @@
 require 'mkmf'
-create_makefile 'carats/array/required'
+#create_makefile 'carats/kernel/required'
+create_makefile 'kernel_required'
 

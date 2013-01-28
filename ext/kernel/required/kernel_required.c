@@ -18,7 +18,7 @@ rb_f_required(VALUE obj, VALUE fname){
   };
 }
 
-void Init_carats(){
+void Init_kernel_required(){
   rb_define_global_function("required?", rb_f_required, 1);
 }
 

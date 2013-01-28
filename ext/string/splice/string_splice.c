@@ -1,5 +1,5 @@
 #include <ruby.h>
-#include <st.h>
+#include <ruby/st.h>
 
 /*
  *  call-seq:
@@ -36,7 +36,7 @@ rb_str_splice2(int argc, VALUE *argv, VALUE str)
   } 
 }
 
-void Init_carats(){
-  rb_define_method(rb_cString, "splice", rb_str_splice2, -3);
+void Init_string_splice(){
+  rb_define_method(rb_cString, "splice", rb_str_splice2, -1);
 }
 

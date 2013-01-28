@@ -20,7 +20,7 @@ rb_f_require_path(VALUE obj, VALUE fname){
   }
 }
 
-void Init_carats(){
+void Init_require_path(){
   rb_define_global_function("require_path", rb_f_require_path, 1);
 }
 

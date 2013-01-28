@@ -1,5 +1,5 @@
 #include <ruby.h>
-#include <st.h>
+#include <ruby/st.h>
 
 /*
  *  call-seq:
